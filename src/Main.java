@@ -2,28 +2,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-
         String userInput = "";
-        int rowAmount = 0;
-        int characterCount = 0;
+        Counter counter = new Counter();
 
         while (!userInput.equals("stop")) {
-
             System.out.println("Enter a text: ");
             Scanner scan = new Scanner(System.in);
             userInput = scan.nextLine();
+            counter.addCharacterCount(userInput);
 
             if (!userInput.equals("stop")) {
-                rowAmount++;
-                characterCount += userInput.length();
+                counter.increaseRowAmount();
             }
-
         }
-
-        System.out.println(rowAmount);
-        System.out.println(characterCount);
+        System.out.println(counter.getRowAmount());
+        System.out.println(counter.getCharacterCount());
     }
-
-
 }
